@@ -1,7 +1,7 @@
 # toast
 `toast` is a simple script for displaying macOS Notification Centre notifications from the command line.  It is simply a wrapper around [Apple's `osascript` command](https://support.apple.com/lt-lt/guide/terminal/trml1003/mac).
 
-# Installation #
+# Installation
 You will need to checkout this repository and then add the `toast` script to somewhere on your `PATH`.
 
 One way to do this as is follows:
@@ -12,7 +12,7 @@ cd toast
 ln -s $PWD/toast /usr/local/bin
 ```
 
-# Usage #
+# Usage
 Display a notification with the default title:
 `toast Lorem ipsum dolor sit amet, consectetur adipiscing elit.`
 ![image of notification](screenshots/default.png)
@@ -25,7 +25,7 @@ Display a notification with a custom title and a subtitle:
 `$ ./toast --title "Example Notification" --subtitle "Some context" Lorem ipsum dolor sit amet, consectetur adipiscing elit.`
 ![image of notification](screenshots/subtitle.png)
 
-# Options #
+# Options
 ```
 usage: toast [-h] [-t TITLE] [-s SUBTITLE] text [text ...]
 
@@ -42,7 +42,7 @@ optional arguments:
                         subtitle for the notification
 ```                        
 
-# Frequently Asked Questions #
+# Frequently Asked Questions
 **Q.** Can I change the icon displayed on the notification?
 
 **A.** No. This is a limitation of the `osascript` command.
