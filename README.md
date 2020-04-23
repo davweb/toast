@@ -16,16 +16,19 @@ ln -s $PWD/toast /usr/local/bin
 Display a notification with the default title:
 
 `toast Lorem ipsum dolor sit amet, consectetur adipiscing elit.`
+
 ![image of notification](screenshots/default.png)
 
 Display a notification with a custom title:
 
 `toast --title "Example Notification" Lorem ipsum dolor sit amet, consectetur adipiscing elit.`
+
 ![image of notification](screenshots/title.png)
 
 Display a notification with a custom title and a subtitle:
 
 `$ ./toast --title "Example Notification" --subtitle "Some context" Lorem ipsum dolor sit amet, consectetur adipiscing elit.`
+
 ![image of notification](screenshots/subtitle.png)
 
 # Options
