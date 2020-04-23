@@ -27,7 +27,7 @@ Display a notification with a custom title:
 
 Display a notification with a custom title and a subtitle:
 
-`$ ./toast --title "Example Notification" --subtitle "Some context" Lorem ipsum dolor sit amet, consectetur adipiscing elit.`
+`toast --title "Example Notification" --subtitle "Some context" Lorem ipsum dolor sit amet, consectetur adipiscing elit.`
 
 ![image of notification](screenshots/subtitle.png)
 
