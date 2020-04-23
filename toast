@@ -1,0 +1,45 @@
+#!/usr/bin/python3
+
+"""Script to make it easy to display an Notification Center notification from the command line."""
+
+import argparse
+import os.path
+import subprocess
+import sys 
+
+def notify(text, title, subtitle):
+    """Use AppleScript to display a notification in the Notification Center"""
+
+    text = text.replace('"', "'")
+    apple_script = 'display notification "{0}" with title "{1}"'.format(text, title)
+
+    if subtitle:
+        apple_script += ' subtitle "{0}"'.format(subtitle)
+
+    try:
+        command = ['osascript', '-e', apple_script]
+        exit_code = subprocess.call(command)
+        return exit_code == 0
+    except:
+        return False
+
+
+def main():
+    """Mostly parses command line arguments"""
+
+    parser = argparse.ArgumentParser(description='Show a notification in the Notification Center.')
+    parser.add_argument('-t', '--title', default='Toast', help='title for the notification')
+    parser.add_argument('-s', '--subtitle', help='subtitle for the notification')
+    parser.add_argument('text', metavar='text', nargs='+', help='the notification text')
+
+    args = parser.parse_args()
+    
+    result = notify(' '.join(args.text), args.title, args.subtitle)
+
+    if not result:
+        name = os.path.basename(sys.argv[0])
+        print('{0}: error: Failed to send notification'.format(name), file=sys.stderr)
+        sys.exit(1)
+
+if __name__ == "__main__":
+    main()
